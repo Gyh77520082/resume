@@ -1,0 +1,196 @@
+ * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        /*导航栏*/
+      .container {
+        height: 71px;
+        width: 1600px;
+        position: fixed;
+        background-color: #fff;
+        left:0;
+        top:0;
+      }
+      .container-l {
+        float: left;
+      }
+      .container-l img {
+        width: 209px;
+        height: 55px;
+        margin-left: 189px;
+        margin-top: 10px;
+      }
+      .container-r {
+        width: 1200px;
+        height: 40px;
+        background-color: #f7fcf2;
+        float: right;
+        margin-top: 20px;
+        margin-right: -15px;  
+      }
+      .container .navbar {
+        height: 200px;
+        position: relative; 
+        display: block;     
+      }
+      .navbar li {
+        margin-left: 90px;
+        height: 40px;
+        float: left;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        padding-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .container  .navbar li:first-child {
+        margin-left: 40px;    
+      }
+       .navbar li a {
+        color: rgba(0,0,0, .5);
+        cursor: pointer;
+        line-height: 40px;
+      }
+       .navbar li a:hover {
+        color: #000;
+       }
+      .sub-nav {
+        width: 145px;
+        position: absolute;
+       display: none;
+        background-color: #f7fcf2;
+      }
+      .sub-nav {
+         top: 34px;
+        left: 158px;
+      }
+      .sub-nav1 {
+        top: 34px;
+        left: 330px;
+         display: none;
+      }
+      .sub-nav2 {
+        top: 34px;
+        left: 477px;        
+      }
+      .sub-nav3 {
+        top: 34px;
+        left: 622px;     
+      }
+      .sub-nav4 {
+        top: 34px;
+        left: 783px;        
+      } 
+      .container .navbar .sub-nav li {
+        margin-left: 0;
+        width: 145px;
+        height: 17px;
+        text-align: center;     
+      }
+      .navbar .sub-nav li a {
+        text-align: center;
+        width: 145px;
+        color: #000;
+      }
+      .navbar .sub-nav li a:hover{
+        color: #007bff;;
+      }     
+      #art_form {
+        margin-top: 10px;
+      }
+      /*头部大屏*/
+      header {
+        height: 150px;
+        background: url(admin/images/1.jpg) no-repeat;
+        background-size: cover;
+      }
+      .bigImg {
+       margin-top: 53px;
+      }
+       h1 {
+        font-size: 25px;
+        font-weight: normal;
+        color: #fff;
+        padding-top: 53px;
+        margin-left: 179px;
+        animation: go 1s ease 0s ;
+      }    
+      @keyframes go {
+        from {
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+      }
+      /*底部*/
+        footer {
+        height: 245px;
+        border: 1px solid #dee2e6;
+        margin-top: 36px;
+        color: rgba(0,0,0, .5);
+        background-color: #f8f9fa;
+      }
+      footer h5 {
+        font-size: 18px;
+        font-weight: normal;
+      }
+      footer li {
+        font-size: 14px;
+        padding-top: 10px;
+      }
+      .footer-l {
+        width: 475px;
+        height: 130px;
+        float: left;
+        margin-left: 184px;
+        margin-top: 35px;
+      }
+       .footer-l a {
+        color: rgba(0,0,0, .5);
+       }
+       .footer-l a:hover {
+        color: #007bff;
+       }
+      .footer-r {
+        width: 800px;
+        height: 130px;
+        float: right;
+        margin-right: 44px;
+        margin-top: 35px;
+      }
+      .footer-r-l {
+        float: left;
+      }
+      .footer-r-r {
+        width: 100px;
+        height: 130px;
+        float: right;
+        margin-right: 156px;
+      }
+      .footer-r-r img {
+        width: 100px;
+        height: 100px;
+      }
+      .footer-r-r p {
+        font-size: 12px;
+      }
+      .Copyright {
+        height: 43px;
+        border: 1px solid #dee2e6;
+        margin-top: 201px;
+        line-height: 43px;
+        text-align: center;
+        font-size: 14px;
+      }
+       table{border-collapse:collapse;width: 1000px;border: 1px solid black;}
+        .td_1{border: 1px solid black;width: 120px;height: 40px;text-align: center}
+        .td_left{border: 1px solid black;width: 10px;height: 10px;text-align: center;}
+        .td_m{border: 1px solid black;width: 150px;height: 40px;text-align: center;}
+        .td_foot{border: 1px solid black;width: 150px;text-align: center;}
+        span{color: red;}
