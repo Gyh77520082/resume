@@ -14,10 +14,13 @@ class IndexContorller extends Controller
       	$posts=Post::get()->where('post_leader',$insterviewername)->toArray();
         return view('interviewer/index',compact('posts'));
     }
+
+
+    
     //评价列表页
      public function list(Request $request){
       $postname=$request['post'];
-      $resume=Resume::where('post',$postname)->paginate(10);
+      $resume=Resume::where('post',$postname)->get();
       return view('interviewer/list',compact('resume'));
     }
     //查看简历详情

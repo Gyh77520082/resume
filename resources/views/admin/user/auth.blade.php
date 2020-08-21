@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-  
-  <head>
-    <title>授权</title>
-   
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-  </head>
-  
+@extends('admin.layouts.admin')
+@section('title', '授权')
+@section('center')
   <body>
     <div class="layui-fluid">
         <div class="layui-row">
@@ -49,14 +41,7 @@
             $ = layui.jquery;
           var form = layui.form
           ,layer = layui.layer;
-        
-          
-
-        
-          
         });
     </script>
-   @include('admin.public.footer')
   </body>
-
-</html>
+@stop

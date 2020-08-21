@@ -6,10 +6,7 @@
     </head>
 <body>
 	<center>
-		<p>您的简历填写有误请点击连接前往核对修改 resume.sharefamily.com.cn/editresumeemail?resumeid={{ $resume->id }}
-		
-			
-		</p>
+		<p>您的简历填写有误请点击连接前往核对修改 resume.sharefamily.com.cn/editresumeemail?resumeid={{ $resume->id }}		
 		</p>
 	</center>
 </body>

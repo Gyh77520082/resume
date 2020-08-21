@@ -218,31 +218,31 @@
         <table id="project_info">
 
             <tr>
-                <td  rowspan="3" class="td_left">项目经历</td>
-                <td class="td_m">项目名称</td>
+                <td  rowspan="3" class="td_left"><span >*</span>项目经历</td>
+                <td class="td_m"><span >*</span>项目名称</td>
                 <td class="td_m" colspan="5">
-                    <input type="text" id="projectname" name="projectname[]"  autocomplete="off" class="layui-input">
+                    <input type="text" id="projectname" name="projectname[]" required="" lay-verify="required" autocomplete="off" class="layui-input">
                 </td>
 
             </tr>
             <tr>
-                <td class="td_m">项目简介</td>
+                <td class="td_m"><span >*</span>项目简介</td>
                 <td class="td_m">
-                    <input type="text" id="projectbrief" name="projectbrief[]"  autocomplete="off" class="layui-input">
+                    <input type="text" id="projectbrief" name="projectbrief[]" required="" lay-verify="required" autocomplete="off" class="layui-input">
                 </td>
-                <td class="td_m">项目时间</td>
+                <td class="td_m"><span >*</span>项目时间</td>
                 <td class="td_m">
-                    <input type="date"  name="projectmin[]"  autocomplete="off" class="layui-input">
+                    <input type="date"  name="projectmin[]" required="" lay-verify="required" autocomplete="off" class="layui-input">
                 </td>
                 <td style="width:10px;">至</td>
                 <td class="td_m">
-                    <input type="date"  name="projectmax[]"  autocomplete="off" class="layui-input">
+                    <input type="date"  name="projectmax[]" required="" lay-verify="required" autocomplete="off" class="layui-input">
                 </td>
             </tr>
             <tr>
-                <td class="td_m" >项目描述</td>
+                <td class="td_m" ><span >*</span>项目描述</td>
                 <td class="td_m" colspan="5">
-                    <textarea name="projectdescription[]" class="layui-textarea"></textarea>
+                    <textarea name="projectdescription[]" required="" lay-verify="required" class="layui-textarea"></textarea>
                 </td>
             </tr>
         </table>
@@ -272,7 +272,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="td_left">自我评价 &nbsp;<span >*</span></td>
+                <td class="td_left"><span >*</span>自我评价</td>
                 <td class="td_m" colspan="5">
                     <textarea name="introduce" class="layui-textarea"  required="" lay-verify="required" ></textarea>
                 </td>

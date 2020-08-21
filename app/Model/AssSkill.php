@@ -4,12 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Assess extends Model
+class AssSkill extends Model
 {
-     //
-    public $table='assess';
+    public $table='ass_skill';
 
-     public $primaryKey =  "a_id" ;
+     public $primaryKey =  "id" ;
   
    	//    3. 允许批量操作的字段
 

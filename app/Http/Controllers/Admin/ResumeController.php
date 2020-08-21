@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use App\Model\Resume;
-use App\Model\EndEmail;
+use App\Model\AdminUser;
 use App\Model\Post;
 use Mail;
 use DB;
@@ -271,7 +271,7 @@ class ResumeController extends Controller
     //群发邮件页面
     public function pocket($id){
         $resume =Resume::find($id);
-        $eemail =EndEmail::get();
+        $eemail =AdminUser::get();
         return view('admin.email.endemail',compact('resume','eemail'));
     }
     //邮件群发操作
@@ -281,7 +281,7 @@ class ResumeController extends Controller
         foreach ($data as $v) { 
             if($v==','){    
             }else{
-                $EndEmail=EndEmail::find($v);
+                $EndEmail=AdminUser::find($v);
                 $email =$EndEmail->email;
                 $imgPath = 'http://'.$_SERVER['HTTP_HOST'].$resume->file;
                 Mail::send('admin.email.remindemail',['resume'=>$resume,'imgPath'=>$imgPath],function($message) use($email){

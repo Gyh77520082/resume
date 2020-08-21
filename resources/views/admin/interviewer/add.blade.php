@@ -1,43 +1,59 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-  
-  <head>
-    <title>添加</title>
-     <meta name="csrf-token" content="{{ csrf_token() }}">   
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-  </head>
-  
-  <body>
-    <div class="layui-fluid">
-        <div class="layui-row">
-            <form  class="layui-form layui-form-pane">
-                <div class="layui-form-item">
-                    <label for="name" class="layui-form-label">
-                        <span class="x-red">*</span>姓名
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="name" name="name" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                
-                <div class="layui-form-item">
-                    <label for="name" class="layui-form-label">
-                        <span class="x-red">*</span>邮箱
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="email" id="email" name="email" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                <button class="layui-btn" lay-submit="" lay-filter="add">增加</button>
-              </div>
-            </form>
+@extends('admin.layouts.admin')
+@section('title', '面试官添加')
+@section('center')
+ <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form">
+                  <div class="layui-form-item">
+                      <label for="username" class="layui-form-label">
+                          <span class="x-red">*</span>用户名
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="username" name="username" required="" lay-verify="required"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="email" class="layui-form-label">
+                          <span class="x-red">*</span>邮箱
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="email" name="email" required="" lay-verify="required"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="L_pass" class="layui-form-label">
+                          <span class="x-red">*</span>密码
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="password" id="L_pass" name="pass" required="" lay-verify="pass"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid layui-word-aux">
+                          4到18个字符
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="L_repass" class="layui-form-label">
+                          <span class="x-red">*</span>确认密码
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="password" id="L_repass" name="repass" required="" lay-verify="repass"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="L_repass" class="layui-form-label">
+                      </label>
+                      <button  class="layui-btn" lay-filter="add" lay-submit="">
+                          增加
+                      </button>
+                  </div>
+              </form>
+            </div>
         </div>
-    </div>
     <script>
         layui.use(['form','layer'], function(){
             $ = layui.jquery;
@@ -73,6 +89,6 @@
           });
         });
     </script>
-   @include('admin.public.footer')
+  
   </body>
-</html>
+@stop

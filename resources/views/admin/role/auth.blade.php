@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-    <head>
-       <title>权限列表</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-    </head> 
-
+@extends('admin.layouts.admin')
+@section('title', '授权列表')
+@section('center')
      <body>
     <div class="layui-fluid">
         <div class="layui-row">
@@ -55,9 +48,6 @@
           
         });
     </script>
-   @include('admin.public.footer')
-  </body>
-
-    
  
-</html>
+  </body>
+@stop

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title>简历评价</title>
-       <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')   
-    </head>
+@extends('admin.layouts.admin')
+@section('title', '添加评价')
+@section('center')
       <body>
         <center>
           <form class="layui-form" >
@@ -19,83 +13,6 @@
               <td class="td_left">项目</td>
               <td colspan="2" >评价</td>
             </tr>
-            <tr>
-              <td>综合素养</td>
-              <td>依据条件评价，共5级（1很差，2比较差，3一般，4很好，5非常好）</td>
-              <td class="td_right">得分</td>
-            </tr>
-            <tr>
-              <td>1.职业修养</td>
-              <td>相貌端正、衣着整洁、举止大方得体、个人修养好</td>
-              <td id="sum_one">
-            <select name="vocationa" lay-verify="required" class="layui-input-block"  >
-              <option   value ="0"></option>
-              <option   value ="2">很差</option>
-              <option   value ="4">比较差</option>
-              <option   value ="6">一般</option>
-              <option   value ="8">很好</option>
-              <option   value ="10">非常好</option>
-            </select>
-          </td>
-            </tr>
-        <tr>
-          <td>2.责任感</td>
-          <td>回答问题诚实、负责，有责任心</td>
-          <td id="sum_one" > 
-            <select name="duty" lay-verify="required" class="layui-input-block"  >
-             <option   value ="0"></option>
-              <option   value ="2">很差</option>
-              <option   value ="4">比较差</option>
-              <option   value ="6">一般</option>
-              <option   value ="8">很好</option>
-              <option   value ="10">非常好</option>
-            </select>
-          </td id="sum_one" >
-        </tr>
-        <tr>
-          <td>3.自我认知</td>
-          <td>能客观评价自己的优势和不足，对自身有清晰的定位</td>
-          <td> 
-            <select name="autognosis" lay-verify="required" class="layui-input-block"  >
-             <option   value ="0"></option>
-              <option   value ="2">很差</option>
-              <option   value ="4">比较差</option>
-              <option   value ="6">一般</option>
-              <option   value ="8">很好</option>
-              <option   value ="10">非常好</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>4.工作动力</td>
-          <td>强烈的进取精神，心态乐观，积极主动</td>
-          <td id="sum_one" > 
-            <select name="capacity" lay-verify="required" class="layui-input-block"  >
-             <option   value ="0"></option>
-              <option   value ="2">很差</option>
-              <option   value ="4">比较差</option>
-              <option   value ="6">一般</option>
-              <option   value ="8">很好</option>
-              <option   value ="10">非常好</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>5.逻辑思维</td>
-          <td>思路清晰，对事件描述符合逻辑、严密、有条理</td>
-          <td id="sum_one" > 
-           <select name="thought" lay-verify="required" class="layui-input-block"  >
-            <option   value ="0"></option>
-              <option   value ="0"></option>
-              <option   value ="2">很差</option>
-              <option   value ="4">比较差</option>
-              <option   value ="6">一般</option>
-              <option   value ="8">很好</option>
-              <option   value ="10">非常好</option>
-            </select>
-           </td>
-        </tr>
-            <tr>
               <td colspan="3">专业技能</td>
             </tr>
         <tr>
@@ -225,7 +142,7 @@
             //发异步，把数据提交给php
               $.ajax({
                   type:'POST',
-                  url:'/interviewer/assess/add',
+                  url:'/interviewer/ass_skill/add',
                   dataType:'json',
                   headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -250,4 +167,4 @@
           });
       });
   </script>
-</html>
+@stop

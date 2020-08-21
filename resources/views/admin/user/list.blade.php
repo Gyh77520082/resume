@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-    <head>
-        
-        <title>管理员列表</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-       
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
+@extends('admin.layouts.admin')
+@section('title','管理员列表')
+@section('center')
     <body>
         <div class="x-nav">
-          <span class="layui-breadcrumb">
-            <!-- <a href="">首页</a>
-            <a href="">演示</a> -->
-            
-            <a>
-              <cite>导航元素</cite></a>
-          </span>
           <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
             <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
         </div>
@@ -57,6 +41,7 @@
                                     </th>
                                     <th>ID</th>
                                     <th>用户名</th>
+                                    <th>邮箱</th>
                                     <th>状态</th>
                                     <th>操作</th></tr>
                                 </thead>
@@ -68,6 +53,7 @@
                                     </td>
                                     <td>{{ $v->id }}</td>
                                     <td>{{ $v->name }}</td>
+                                    <td>{{ $v->email }}</td>
                                     <td class="td-status">
                                       @if($v->status == 1)
                                     <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
@@ -103,7 +89,6 @@
                 </div>
             </div>
         </div> 
-         @include('admin.public.footer')
     </body>
     <script>
       layui.use(['laydate','form'], function(){
@@ -192,4 +177,4 @@
         });
       }
     </script>
-</html>
+@stop

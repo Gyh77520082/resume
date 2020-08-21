@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title>简历投递</title>
-       <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
-<body>
+@extends('admin.layouts.admin')
+@section('title', '简历修改')
+@section('center')
 	<center>
 	 <form class="layui-form" id="art_form" >
 	 	 <input type="hidden" name="uid" value="{{$resume->id}}">
@@ -307,5 +299,4 @@
 
         });
           </script>
-
-</html>
+@stop

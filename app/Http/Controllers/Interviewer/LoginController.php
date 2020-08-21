@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Interviewer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Resume;
-use App\Model\EndEmail;
+use App\Model\AdminUser;
 use App\Model\Post;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use App\Model\AdminUser;
+
 
 
 class LoginController extends Controller
@@ -19,7 +19,7 @@ class LoginController extends Controller
     }
     //
     public function login(){
-        $endemail=EndEmail::get();
+        $endemail=AdminUser::get();
         return view('interviewer/login',compact('endemail'));
     }
      public function dologin(Request $request){
@@ -53,14 +53,9 @@ class LoginController extends Controller
         }else{
             if(Hash::check($input['password'],$user ->password)){
                  //4.保存到seesion会话中
-                if($user->status == 1){
                      session()->put('interviewer',$user);
                    
                     return redirect('interviewer/index'); 
-                }else{
-                    return redirect('interviewer/login')->with('errors','该用户已被禁用');
-                }
-                
             }else{
                 return redirect('interviewer/login')->with('errors','密码错误');
             }

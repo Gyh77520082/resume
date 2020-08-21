@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-  
-  <head>
-    
-    <title>权限添加</title>
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-  </head>
-  
+@extends('admin.layouts.admin')
+@section('title', '权限添加')
+@section('center')
   <body>
      
     <div class="layui-fluid">
@@ -45,15 +36,11 @@
         layui.use(['form','layer'], function(){
             $ = layui.jquery;
           var form = layui.form
-          ,layer = layui.layer;
-        
-         
-           
-          });
+          ,layer = layui.layer;   
 
           //监听提交
           form.on('submit(add)', function(data){
-            
+           
             success:function(data){
                       // 弹层提示添加成功，并刷新父页面
                       // console.log(data);
@@ -82,17 +69,9 @@
                $(data.elem).parent().siblings('td').find('input').prop("checked", false);
                 form.render();  
             }
-        });
-          
-          
-        });
+        });     
+      });
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+   
   </body>
-
-</html>
+@stop

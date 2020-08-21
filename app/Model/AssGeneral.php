@@ -4,10 +4,10 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EndEmail extends Model
+class AssGeneral extends Model
 {
-    //
-    public $table='endemail';
+     //
+    public $table='ass_general';
 
      public $primaryKey =  "id" ;
   
@@ -19,12 +19,4 @@ class EndEmail extends Model
 	//    4. 是否维护crated_at 和 updated_at字段
 
     public $timestamps = false;
-    
-    public function assess(){
-    	return $this->hasMany('App\Model\Assess','ass_name','name');
-    }
-    public function posts(){
-        return $this->hasMany('App\Model\Post','post_leader','name');
-    }
-  
 }

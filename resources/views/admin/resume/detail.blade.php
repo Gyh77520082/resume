@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title>查看简历</title>
-       <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
+@extends('admin.layouts.admin')
+@section('title', '简历查看')
+@section('center')
 <body>
 	<center>
 	 <form class="layui-form" id="art_form" >
@@ -239,7 +232,6 @@
 	 </form>
 	</center>
 	</body>
-
 	<style type="text/css">
 		table{border-collapse:collapse;width: 1000px;border: 1px solid bla}
 		.td_1{border: 1px solid black;width: 120px;height: 40px;text-align: center;}
@@ -344,5 +336,4 @@
 
         });
           </script>
-
-</html>
+@stop

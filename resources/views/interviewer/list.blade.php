@@ -21,7 +21,9 @@
                                     <th>期望薪酬</th>
                                     <th>状态</th>
                                     <th>是否通过</th>
+                                    
                                     <th>操作</th>
+                                    
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -31,23 +33,38 @@
                                     <td>
                                       <input type="checkbox" name="{{ $v->id }}" data-id='{{ $v->id }}' value="{{ $v->id }}" lay-skin="primary"> {{$v->id}}
                                     </td>
+                                    @foreach($v->resumes as $t)
+     
                                     <td>{{$v->name}}</td>
                                     <td>{{$v->createtime}}</td>
                                     <td>{{$v->post}}</td>
                                     <td>{{$v->payment}}</td>
                                     <td>{{$v->status}}</td> 
-                                    <td>{{$v->ifpass}}</td>   
+                                    <td>{{$v->ifpass}}</td>  
                                     <td class="td-manage">
                                       <a title="查看"  onclick="xadmin.open('查看','{{ url('interviewer/detail/'.$v->id) }}')" href="javascript:;">
                                         <i class="layui-icon">&#xe642;</i>
                                       </a>
-                                       <a title="评价"  onclick="xadmin.open('评价','{{ url('interviewer/assess/'.$v->id) }}')" href="javascript:;">
+                                      @if($t->post_category=='综合类')
+                                       <a title="评价"  onclick="xadmin.open('评价','{{ url('interviewer/ass_general/'.$v->id) }}')" href="javascript:;">
                                         <i class="layui-icon">评</i>
-                                      </a>                   
+                                      </a> 
+                                      <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('interviewer/ass_general_detail/'.$v->id) }}')" href="javascript:;">
+                                        <i class="layui-icon">查评</i>
+                                      </a>
+                                      @else
+                                      <a title="评价"  onclick="xadmin.open('评价','{{ url('interviewer/ass_skill/'.$v->id) }}')" href="javascript:;">
+                                        <i class="layui-icon">评</i>
+                                      </a> 
+                                       <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('interviewer/ass_skill_detail/'.$v->id) }}')" href="javascript:;">
+                                        <i class="layui-icon">查评</i>
+                                      </a>
+                                      @endif 
+                                             
                                     </td>
                                   </tr>
-                                 
-                                   @endforeach
+                                  @endforeach 
+                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -67,7 +84,6 @@
         var  form = layui.form;
         // 监听全选
         form.on('checkbox(checkall)', function(data){
-
           if(data.elem.checked){
             $('tbody input').prop('checked',true);
           }else{
@@ -84,7 +100,23 @@
           elem: '#end' //指定元素
         });
       });
-    
-      
     </script>
 @stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

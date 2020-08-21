@@ -1,7 +1,8 @@
 @extends('home.layouts.default')
 @section('title', '简历查看')
 @section('center')
-<center>
+<center style='margin-top: 200px' >
+
 	 <form class="layui-form" id="art_form" >
 	 	 <input type="hidden" name="uid" value="{{$resume->id}}">
 	  <table >

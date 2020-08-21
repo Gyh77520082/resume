@@ -71,8 +71,15 @@ Route::group(['prefix'=>'interviewer','namespace'=>'Interviewer','middleware'=>[
 	Route::get('index','IndexContorller@index'); //简历岗位选择进入详情页
 	Route::any('list','IndexContorller@list');//列表页
 	Route::get('detail/{id}','IndexContorller@detail'); //简历详情页
-	Route::get('assess/{id}','AssessController@index'); //返回评价页
-	Route::any('assess/add','AssessController@add');  //评价添加
+	//综合评价
+	Route::get('ass_general/{id}','AssessController@general'); //返回评价页
+	Route::any('ass_general/add','AssessController@add_general');  //评价添加
+	Route::any('ass_general_detail/{id}','AssessController@general_detail');  //评价查看
+	//技能评价
+	Route::get('ass_skill/{id}','AssessController@skill'); //返回评价页
+	Route::any('ass_skill/add','AssessController@add_skill');  //评价添加
+	Route::any('ass_skill_detail/{id}','AssessController@skill_detail');  //评价添加
+
 });
 Route::group(['prefix'=>'interviewer','namespace'=>'Interviewer'],function(){
 	Route::get('login','LoginController@login'); 	//返回登陆页

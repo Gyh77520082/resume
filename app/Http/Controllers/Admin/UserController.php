@@ -31,9 +31,6 @@ class UserController extends Controller
         return view("admin/user/list",compact('user','total','request'));
         
     }
-
-
-
     //授权
      public function auth($id)
      {  
@@ -102,9 +99,10 @@ class UserController extends Controller
         $input = $request->all();
 
         $username=$input['username'];
+        $email=$input['email'];
         $password =Hash::make($input['pass']);
 
-        $res=Adminuser::create(['name'=>$username,'password'=>$password]);
+        $res=Adminuser::create(['name'=>$username,'password'=>$password,'email'=>$email]);
         if($res){
             $data = [
                 'status'=>0,
@@ -122,24 +120,7 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
         //
@@ -160,12 +141,14 @@ class UserController extends Controller
         $input = $request->all();
        //        1. 根据id获取要修改的记录
         $user = AdminUser::find($id);
-//        2. 获取要修改成的用户名
+        //        2. 获取要修改成的用户名
         $old = Hash::check($input['oldpass'],$user ->password);
         if($old){
             $password =$input['pass'];
             $pass=Hash::make($password);
             $user->password=$pass;
+            $email = $input['email'];
+            $user->email=$email;
             $res = $user->save();
             if($res){
                 $data = [
@@ -188,12 +171,7 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *删除
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         $user = AdminUser::find($id);

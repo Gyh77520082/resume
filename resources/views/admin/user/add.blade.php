@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-    
-    <head>
-     <title>管理员添加</title>
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
+@extends('admin.layouts.admin')
+@section('title', '管理员添加')
+@section('center')
     <body>
         <div class="layui-fluid">
             <div class="layui-row">
@@ -24,6 +16,16 @@
                       <div class="layui-form-mid layui-word-aux">
                           <span class="x-red">*</span>将会成为您唯一的登入名
                       </div>
+                  </div>
+                  <div class="layui-form-item">
+                      <label for="email" class="layui-form-label">
+                          <span class="x-red">*</span>邮箱
+                      </label>
+                      <div class="layui-input-inline">
+                          <input type="text" id="email" name="email" required="" lay-verify="required"
+                          autocomplete="off" class="layui-input">
+                      </div>
+                     
                   </div>
                   <div class="layui-form-item">
                       <label for="L_pass" class="layui-form-label">
@@ -56,12 +58,12 @@
               </form>
             </div>
         </div>
-        <script>layui.use(['form', 'layer'],
+        <script>
+          layui.use(['form', 'layer'],
             function() {
                 $ = layui.jquery;
                 var form = layui.form,
                 layer = layui.layer;
-
                 //自定义验证规则
                 form.verify({
                     nikename: function(value) {
@@ -111,7 +113,6 @@
           });
             });
           </script>
-       @include('admin.public.footer')
     </body>
+@stop
 
-</html>

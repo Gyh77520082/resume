@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-    <head>
-       <title>权限列表</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-    </head> 
+@extends('admin.layouts.admin')
+@section('title', '岗位列表')
+@section('center')
     <body>
         <div class="x-nav">
          
@@ -102,10 +96,4 @@
         });
       }
     </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
-</html>
+   @stop

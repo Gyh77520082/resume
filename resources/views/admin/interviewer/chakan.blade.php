@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-     <title>简历评价表</title>
-       <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
-
+@extends('admin.layouts.admin')
+@section('title', '查看评价')
+@section('center')
       <body>
         <center>
           <form class="layui-form" id="art_form">
-           
-
           <table >
             <tr>
               <td class="td_left">项目</td>
@@ -123,27 +113,11 @@
       </center>
     </body>
     <style type="text/css">
-    table{
-      border-collapse:collapse;
-      width: 800px;
-      border: 1px solid black;
-    }
-    td{
-      border: 1px solid black; 
-    }
-    .td_left{
-       border: 1px solid black;
-       width: 150px;
-       text-align: center;
-    }
-    .td_right{
-      border: 1px solid black;
-      width: 80px;
-      text-align: center;
-    }
-    p{
-      text-align: center;
-    }
+    table{border-collapse:collapse;width: 800px;border: 1px solid black;}
+    td{border: 1px solid black; }
+    .td_left{border: 1px solid black;width: 150px;text-align: center;}
+    .td_right{border: 1px solid black;width: 80px;text-align: center;}
+    p{text-align: center;}
   </style>
    <script>
     layui.use(['form','layer','upload','element'], function(){

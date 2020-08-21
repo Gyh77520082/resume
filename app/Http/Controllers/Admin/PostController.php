@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Post;
-use App\Model\EndEmail;
+use App\Model\AdminUser;
 
 
 class PostController extends Controller
@@ -17,7 +17,7 @@ class PostController extends Controller
     }
     //添加页
     public function add(){
-        $endemail=EndEmail::get();
+        $endemail=AdminUser::get();
     	return view('admin/post/add',compact('endemail'));
     }
     //添加操作
@@ -58,7 +58,7 @@ class PostController extends Controller
     //修改页面
     public function edit($id){
         $post= Post::find($id);
-        $endemail=EndEmail::get();
+        $endemail=AdminUser::get();
         return view('admin/post/edit',compact('post','endemail'));
     }
     public function update(Request $request,$id){

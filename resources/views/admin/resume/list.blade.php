@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-   <head>
-        <title>简历列表</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-    </head>
+@extends('admin.layouts.admin')
+@section('title', '简历列表')
+@section('center')
     <body>
         <div class="x-nav">
           <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
@@ -179,6 +173,5 @@
             });
         });
       }
-      
     </script>
-</html>
+@stop

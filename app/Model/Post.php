@@ -20,7 +20,7 @@ class Post extends Model
     public $timestamps = false;
 
     public function toemail(){
-    	return $this->belongsTo('App\Model\EndEmail','post_leader','name');
+    	return $this->belongsTo('App\Model\AdminUser','post_leader','name');
     } 
     public function resumes(){
         return $this->belongsTo('App\Model\Resume','post_name','post');

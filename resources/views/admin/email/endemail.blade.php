@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html class="x-admin-sm">
-    <head>
-        
+    <head> 
         <title>发送邮件</title>
         <meta name="csrf-token" content="{{ csrf_token() }}"> 
         @include('admin.public.meta')
         @include('admin.public.styles')
         @include('admin.public.script')
-        
     </head>
     <body>
         <div class="x-nav">

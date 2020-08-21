@@ -27,4 +27,11 @@ class AdminUser extends Model
     public function postes(){
         return $this->hasMany('App\Model\Post','post_leader','name');
     }
+
+    public function assess(){
+        return $this->hasMany('App\Model\Assess','ass_name','name');
+    }
+    public function posts(){
+        return $this->hasMany('App\Model\Post','post_leader','name');
+    }
 }

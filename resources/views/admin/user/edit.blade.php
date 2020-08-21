@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html class="x-admin-sm">
-    
-    <head>
-     <title>管理员添加</title>
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-        @include('admin.public.meta')
-        @include('admin.public.styles')
-        @include('admin.public.script')
-        
-    </head>
+@extends('admin.layouts.admin')
+@section('title', '修改')
+@section('center')
     <body>
         <div class="layui-fluid">
             <div class="layui-row">
@@ -17,6 +9,11 @@
                         <label for="L_username" class="layui-form-label">用户名</label>
                         <div class="layui-input-inline">
                             <input type="text" id="L_username" name="username" disabled="" value="{{ $user->name }}" class="layui-input"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_email" class="layui-form-label">邮箱</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_email" name="email"  value="{{ $user->email }}" class="layui-input"></div>
                     </div>
                   <div class="layui-form-item">
                       <label for="oldpass" class="layui-form-label">
@@ -72,7 +69,6 @@
                         }
                     }
                 });
-
               form.on('submit(edit)', function(data){
             var uid = $("input[name='uid']").val();
             //发异步，把数据提交给php
@@ -102,23 +98,9 @@
                   }
 
               });
-
-
-
-
-
-
-            // layer.alert("增加成功", {icon: 6},function () {
-            //     // 获得frame索引
-            //     var index = parent.layer.getFrameIndex(window.name);
-            //     //关闭当前frame
-            //     parent.layer.close(index);
-            // });
             return false;
           });
             });
           </script>
-       @include('admin.public.footer')
     </body>
-
-</html>
+@stop
