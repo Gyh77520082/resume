@@ -9,6 +9,7 @@ use PhpOffice\PhpWord\IOFactory;
 use App\Model\Resume;
 use App\Model\AdminUser;
 use App\Model\Post;
+use Illuminate\Support\Facades\URL;
 use Mail;
 use DB;
 class ResumeController extends Controller
@@ -225,8 +226,9 @@ class ResumeController extends Controller
                     $email=$post->email;
                     $name=$resume->name;
                     $post=$resume->post;
-                    $imgPath = 'http://'.$_SERVER['HTTP_HOST'].$resume->file;
-                    Mail::send('admin.email.remindemail',['resume'=>$resume,'imgPath'=>$imgPath],function($message) use($email,$name,$post){
+                    $url = 'http://'.$_SERVER['HTTP_HOST'];
+
+                    Mail::send('admin.email.remindemail',['resume'=>$resume,'url'=>$url],function($message) use($email,$name,$post){
                    $message ->to($email)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
                 });
                     $data = [
@@ -251,8 +253,8 @@ class ResumeController extends Controller
         $resume->state=1;
         $res = $resume->save();
         $email=$resume->email;
-        $imgPath = 'http://'.$_SERVER['HTTP_HOST'].$resume->file;
-        Mail::send('admin.email.editresumeemail',['resume'=>$resume,'imgPath'=>$imgPath],function($message) use($email){
+        $url =$_SERVER['HTTP_HOST'];
+        Mail::send('admin.email.editresumeemail',['resume'=>$resume,'url'=>$url],function($message) use($email){
         $message ->to($email)->subject('您的简历填写有误请注意查收');
         });
         if($res){

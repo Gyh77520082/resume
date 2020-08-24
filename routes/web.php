@@ -45,7 +45,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['AdminLogin'
 	 Route::get('interviewer/lists/{id}','InterviewerController@lists');
 	 Route::get('interviewer/detail_skill/{id}','InterviewerController@detail_skill');
 	 Route::get('interviewer/detail_general/{id}','InterviewerController@detail_general');
-
 	 //工作岗位路由
 	 Route::get('post','PostController@index');	//列表页
 	 Route::get('post/add','PostController@add');	//添加页面

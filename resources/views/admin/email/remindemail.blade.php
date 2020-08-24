@@ -11,7 +11,7 @@
 	<center>
 	 	<form class="layui-form" id="art_form" >
 	 		<input type="hidden" name="uid" value="{{$resume->id}}">
-	  		<table >
+	  		<table style="margin-top: 200px" >
 	    		<tr>
 					<td  class="td_1"> 姓名</td>
 					<td class="td_1" >
