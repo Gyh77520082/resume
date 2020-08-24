@@ -214,22 +214,18 @@ class ResumeController extends Controller
                 'message'=>'已通过审核请勿重复提交'   
             ];
         }else{
-                $resume->state=1;
+                // $resume->state=1;
                 $res = $resume->save();
             if($res){
                     $postname=$resume->post;
-                    $posts=Post::get()->where('post_name','=',$postname)->toArray();
-                    foreach ($posts as $v) {
-                        $postid=$v['post_id'];
-                    }
-                    $post=Post::find($postid)->toemail;
-                    $email=$post->email;
+                    $post=Post::find($postname);
+                    $postes=$post->toemail;
+                    $email=$postes->email;
                     $name=$resume->name;
-                    $post=$resume->post;
-                    $url = 'http://'.$_SERVER['HTTP_HOST'];
-
-                    Mail::send('admin.email.remindemail',['resume'=>$resume,'url'=>$url],function($message) use($email,$name,$post){
-                   $message ->to($email)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
+                    $posts=$post->post_name;
+                    $imgPath = 'http://'.$_SERVER['HTTP_HOST'].$resume->file;
+                    Mail::send('admin.email.remindemail',['post'=>$post,'resume'=>$resume,'imgPath'=>$imgPath],function($message) use($email,$name,$posts){
+                   $message ->to($email)->subject('姓名:'.$name.'岗位：'.$posts.'的简历，请注意查收');
                 });
                     $data = [
                         'status'=>0,

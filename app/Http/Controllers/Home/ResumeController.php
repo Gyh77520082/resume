@@ -43,7 +43,6 @@ class ResumeController extends Controller
   //添加
      public function add(Request $request){
         $input = $request->all();
-        
         $phone=$input['phone'];
         $resumes=Resume::get()->where('phone','=',$phone)->toArray();
         $name=$input['name'];
@@ -112,12 +111,12 @@ class ResumeController extends Controller
                         'rename'=>$phone
                     ]);
                 }
-           // Mail::raw('前往官网：resume.sharefamily.com.cn/admin/login',function($message) use($name,$post){
-           //      $email='chen.liu@sharefamily.com.cn';
-           //      $e1='xiaojie.liang@sharefamily.com.cn';
-           //      $message ->to($email)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
-           //      $message ->to($e1)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
-           //      });
+           Mail::raw('前往官网：resume.sharefamily.com.cn/admin/login',function($message) use($name,$post){
+                $email='chen.liu@sharefamily.com.cn';
+                $e1='xiaojie.liang@sharefamily.com.cn';
+                $message ->to($email)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
+                $message ->to($e1)->subject('姓名:'.$name.'岗位：'.$post.'的简历，请注意查收');
+                });
                 $data = [
                     'status'=>0,
                     'message'=>'简历提交成功'
@@ -136,15 +135,13 @@ class ResumeController extends Controller
     public function edit(Request $request){
         $token=$request->token;
         $id=$request->resumeid;
-       
         $resume=Resume::find($id);
         if($token==$resume->token){
             $post=Post::get();
             return view("home/resume/edit",compact('resume','post'));
         }else{
             return view('home/resume/message');
-        }
-        
+        }   
     }
     public function update(Request $request,$id){
          $input = $request->all();

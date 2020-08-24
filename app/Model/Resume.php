@@ -30,7 +30,7 @@ class Resume extends Model
 
 
     public function resumes(){
-        return $this->hasMany('App\Model\Post','post_name','post');
+        return $this->hasMany('App\Model\Post','post_id','post');
     }
     public function company(){
         return $this->hasMany('App\Model\Company','rename','phone');

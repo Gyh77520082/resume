@@ -16,7 +16,7 @@
                     <select name="post" lay-verify="required" class="layui-input-block" >
                     	<option value="{{ $resume->post }}">{{ $resume->post }}</option>
                        @foreach($post as $v)
-                        <option value="{{$v->post_name}}">{{$v->post_name}}</option>
+                        <option value="{{$v->post_id}}">{{$v->post_name}}</option>
                         @endforeach
                     </select>
                 </td>

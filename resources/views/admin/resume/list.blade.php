@@ -39,7 +39,7 @@
                                    <select name="post"  class="layui-input-block" >
                                     <option value="">请输入岗位</option> 
                                     @foreach($postes as $v)
-                                   <option value="{{$v->post_name}}">{{$v->post_name}}</option>
+                                   <option value="{{$v->post_id}}">{{$v->post_name}}</option>
                                     @endforeach
                                 </select>
                                 </div>
@@ -81,7 +81,7 @@
                                     </td>
                                     <td>{{$v->name}}</td>
                                     <td>{{$v->createtime}}</td>
-                                    <td>{{$v->post}}</td>
+                                    <td>{{$t->post_name}}</td>
                                     <td>{{$v->payment}}</td>
                                     <td>{{$v->status}}</td> 
                                     <td>{{$v->ifpass}}</td>   

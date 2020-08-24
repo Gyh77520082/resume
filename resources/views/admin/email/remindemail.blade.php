@@ -19,12 +19,11 @@
 					</td>
 					<td class="td_1">应聘岗位</td>
 					<td class="td_1" >
-						<p>{{ $resume->post }}</p>
+						<p>{{ $post->post_name }}</p>
 					<td class="td_1">期望薪酬</td>
 					<td class="td_1" >
 						<p>{{ $resume->payment }}</p>	
 					</td>
-						0
 				</tr>
 				<tr>
 					<td class="td_1">出生年月</td>
