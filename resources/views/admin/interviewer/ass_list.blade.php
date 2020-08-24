@@ -1,6 +1,5 @@
-
 @extends('admin.layouts.admin')
-@section('title', '面试官列表')
+@section('title', '评价列表')
 @section('center')
     <body>
         <div class="x-nav">
@@ -16,7 +15,6 @@
                         </div>
                         <div class="layui-card-body layui-table-body layui-table-main">
                             <table class="layui-table layui-form">
-
                                 <thead>
                                   <tr>
                                     <th>
@@ -29,22 +27,38 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                   @foreach($EndEmail as $v)
+                                   @foreach($users->askill as $v)
                                   <tr>
-                                    <td>
+                                     <td>
                                       <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
                                     </td>
-                                    <td>{{$v->a_id}}</td>
+                                    <td>{{$v->ass_id}}</td>
                                     <td>{{$v->paass_name}}</td>
                                     <td>{{$v->finalresult}}</td>
                                     <td>
-                                      <a title="查看详情"  onclick="xadmin.open('查看详情','{{ url('admin/interviewer/chakan/'.$v->a_id) }}',600,400)" href="javascript:;">
+                                       <a title="查看详情"  onclick="xadmin.open('查看详情','{{ url('admin/interviewer/detail_skill/'.$v->id) }}',600,400)" href="javascript:;">
                                     <i class="layui-icon">查看详情</i>
                                     </a>
                                     </td>
                                   </tr>
-                                  @endforeach
+                                   @endforeach
+                                    @foreach($users->ageneral as $t)
+                                  <tr>
+                                    <td>
+                                      <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
+                                    </td>
+                                    <td>{{$t->ass_id}}</td>
+                                    <td>{{$t->paass_name}}</td>
+                                    <td>{{$t->finalresult}}</td>
+                                    <td>
+                                       <a title="查看详情"  onclick="xadmin.open('查看详情','{{ url('admin/interviewer/detail_general/'.$t->id) }}',600,400)" href="javascript:;">
+                                    <i class="layui-icon">查看详情</i>
+                                    </a>
+                                    </td>
+                                  </tr>
+                                   @endforeach
                                 </tbody>
+                              
                             </table>
                         </div>
                     </div>

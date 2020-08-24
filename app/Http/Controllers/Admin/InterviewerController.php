@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Adminuser;
-use App\Model\Assess;
+use App\Model\AssSkill;
+use App\Model\AssGeneral;
 use Illuminate\Support\Facades\Hash;
 
 class InterviewerController extends Controller
@@ -98,13 +99,18 @@ class InterviewerController extends Controller
         }
         return $data;
     }
-
-    public function detail($id){
-        $EndEmail=Adminuser::find($id)->assess;
-         return view("admin/interviewer/detail",compact('EndEmail'));
+    //查看评价列表
+    public function lists($id){
+         $users = Adminuser::find($id);
+         return view('admin/interviewer/ass_list',compact('users'));
     }
-    public function chakan($id){
-        $assess=Assess::find($id);
-         return view("admin/interviewer/chakan",compact('assess'));
+
+    public function detail_skill($id){
+        $resume=AssSkill::find($id);
+         return view("admin/interviewer/detail_skill",compact('resume'));
+    }
+    public function detail_general($id){
+        $resume=AssGeneral::find($id);
+         return view("admin/interviewer/detail_general",compact('resume'));
     }
 }

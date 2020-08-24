@@ -28,8 +28,12 @@ class AdminUser extends Model
         return $this->hasMany('App\Model\Post','post_leader','name');
     }
 
-    public function assess(){
-        return $this->hasMany('App\Model\Assess','ass_name','name');
+   public function askill(){
+       return $this->hasMany('App\Model\AssSkill','ass_name','name');
+    }
+
+    public function ageneral(){
+        return $this->hasMany('App\Model\AssGeneral','ass_name','name');
     }
     public function posts(){
         return $this->hasMany('App\Model\Post','post_leader','name');

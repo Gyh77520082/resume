@@ -38,12 +38,14 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['AdminLogin'
 	 Route::any('resume/dopocket/{ids}/{id}','ResumeController@dopocket'); //群发邮件操作
 	 //简历评价
 	
-	 
-	 Route::any('assess/detail/{id}','AssessController@detail');
+	 Route::any('assess/general_detail/{id}','AssessController@general_detail');
+	 Route::any('assess/skill_detail/{id}','AssessController@skill_detail');
 	 //面试官列表
 	 Route::resource('interviewer','InterviewerController');
-	 Route::get('interviewer/detail/{id}','InterviewerController@detail');
-	 Route::get('interviewer/chakan/{id}','InterviewerController@chakan');
+	 Route::get('interviewer/lists/{id}','InterviewerController@lists');
+	 Route::get('interviewer/detail_skill/{id}','InterviewerController@detail_skill');
+	 Route::get('interviewer/detail_general/{id}','InterviewerController@detail_general');
+
 	 //工作岗位路由
 	 Route::get('post','PostController@index');	//列表页
 	 Route::get('post/add','PostController@add');	//添加页面

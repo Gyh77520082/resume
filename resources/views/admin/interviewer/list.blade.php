@@ -47,7 +47,7 @@
                                         <i class="layui-icon">&#xe631;</i>
                                       </a>
                                        
-                                       <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('admin/interviewer/detail/'.$v->id) }}',600,400)" href="javascript:;">
+                                       <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('admin/interviewer/lists/'.$v->id) }}',600,400)" href="javascript:;">
                                         <i class="layui-icon">查评</i>
                                       </a>
                                       <a title="删除" onclick="member_del(this,{{ $v->id }} )" href="javascript:;">

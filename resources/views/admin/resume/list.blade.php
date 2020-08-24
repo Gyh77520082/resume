@@ -54,7 +54,7 @@
                         </div>
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>共有数据：{{$total}} 条</span>
-                            
+
                         </div>
                         <div class="layui-card-body layui-table-body layui-table-main">
                             <table class="layui-table layui-form">
@@ -74,6 +74,7 @@
                                 </thead>
                                 <tbody>
                                   @foreach($resume as $v)
+                                   @foreach($v->resumes as $t)
                                   <tr>
                                     <td>
                                       <input type="checkbox" name="{{ $v->id }}" data-id='{{ $v->id }}' value="{{ $v->id }}" lay-skin="primary"> {{$v->id}}
@@ -84,7 +85,6 @@
                                     <td>{{$v->payment}}</td>
                                     <td>{{$v->status}}</td> 
                                     <td>{{$v->ifpass}}</td>   
-
                                     <td class="td-manage">
                                       <a title="查看"  onclick="xadmin.open('查看','{{ url('admin/resume/'.$v->id.'/edit') }}')" href="javascript:;">
                                         <i class="layui-icon">&#xe642;</i>
@@ -92,8 +92,12 @@
                                         <a title="群发"  onclick="xadmin.open('群发','{{ url('admin/resume/pocket/'.$v->id) }}')" href="javascript:;">
                                         <i class="layui-icon">群发</i>
                                       </a>
-                                      @if($v->ifpass=='已面试')
-                                      <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('admin/assess/detail/'.$v->id) }}')" href="javascript:;">
+                                      @if($v->ifpass=='已面试'&&$t->post_category=='综合类')
+                                      <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('admin/assess/general_detail/'.$v->id) }}')" href="javascript:;">
+                                        <i class="layui-icon">查评</i>
+                                      </a>
+                                      @elseif($v->ifpass=='已面试'&&$t->post_category=='技术类')
+                                      <a title="查看评价"  onclick="xadmin.open('查看评价','{{ url('admin/assess/skill_detail/'.$v->id) }}')" href="javascript:;">
                                         <i class="layui-icon">查评</i>
                                       </a>
                                       @endif
@@ -105,7 +109,8 @@
                                       </a>
                                     </td>
                                   </tr>
-                                   @endforeach
+                                    @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

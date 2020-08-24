@@ -4,8 +4,6 @@
       <body>
         <center>
           <form class="layui-form" id="art_form">
-            @foreach($resume as $v)
-                   <H1>评价人：{{ $v->ass_name }}</H1>
           <table >
             <tr>
               <td class="td_left">项目</td>
@@ -21,7 +19,7 @@
               <td>相貌端正、衣着整洁、举止大方得体、个人修养好</td>
               <td>
                 <p>
-                  @switch($v->vocationa)
+                  @switch($resume->vocationa)
                     @case(0)  很差    @break
                     @case(2)  很差    @break
                     @case(4)  比较差  @break
@@ -37,7 +35,7 @@
               <td>回答问题诚实、负责，有责任心</td>
               <td> 
                 <p>
-                  @switch($v->duty)
+                  @switch($resume->duty)
                     @case(0)  很差    @break
                     @case(2)  很差    @break
                     @case(4)  比较差  @break
@@ -53,7 +51,7 @@
               <td>能客观评价自己的优势和不足，对自身有清晰的定位</td>
               <td> 
                 <p> 
-                  @switch($v->autognosis)
+                  @switch($resume->autognosis)
                     @case(0)  很差    @break
                     @case(2)  很差    @break
                     @case(4)  比较差  @break
@@ -69,7 +67,7 @@
               <td>强烈的进取精神，心态乐观，积极主动</td>
               <td> 
                 <p>
-                  @switch($v->capacity)
+                  @switch($resume->capacity)
                     @case(0)  很差    @break
                     @case(2)  很差    @break
                     @case(4)  比较差  @break
@@ -85,7 +83,7 @@
               <td>思路清晰，对事件描述符合逻辑、严密、有条理</td>
               <td> 
                 <p>
-                  @switch($v->thought)
+                  @switch($resume->thought)
                     @case(0)  很差    @break
                     @case(2)  很差    @break
                     @case(4)  比较差  @break
@@ -103,22 +101,22 @@
               <td >其余评价</td>
               <td class="td_right">总分</td>
               <td class="td_right">
-                {{$v->certificatescore+$v->collaboration+$v->vocationa+$v->vocationa+$v->autognosis+$v->capacity+$v->thought+$v->network+$v->mainframe+$v->bigdata}}
+                {{$resume->certificatescore+$resume->collaboration+$resume->vocationa+$resume->vocationa+$resume->autognosis+$resume->capacity+$resume->thought+$resume->network+$resume->mainframe+$resume->bigdata}}
               </td>
             </tr>
             <tr>
               <td colspan="3">
-                <p> {{ $v->evaluation }}</p>   
+                <p> {{ $resume->evaluation }}</p>   
               </td>
             </tr>
             <tr>
               <td>最终结果:</td>
               <td colspan="2">
-                <p> {{ $v->finalresult }}</p>  
+                <p> {{ $resume->finalresult }}</p>  
               </td>
             </tr>
         </table>
-           @endforeach  
+          
         </form>
       </center>
     </body>
