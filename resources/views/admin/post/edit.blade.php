@@ -30,6 +30,18 @@
                         </select>
                     </div>
                 </div>
+                <div class="layui-form-item">
+                   <label for="post_leader" class="layui-form-label">
+                        <span class="x-red">*</span>岗位类别
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="post_category" lay-verify="required" class="layui-input-block" >
+                          <option value="{{$post->post_category}}">{{$post->post_category}}</option>
+                          <option value="综合类">综合类</option>
+                          <option value="技术类">技术类</option>
+                        </select>
+                    </div>
+                </div>
               <div class="layui-form-item">
                     <label for="post_description" class="layui-form-label">
                         <span class="x-red">*</span>岗位简介：

@@ -67,9 +67,11 @@ class PostController extends Controller
         $postname=$input['post_name'];
         $postdescription=$input['post_description'];
         $postleader=$input['post_leader'];
+        $postcategory=$input['post_category'];
         $post->post_name=$postname;
         $post->post_description=$postdescription;
         $post->post_leader=$postleader;
+         $post->post_category=$postcategory;
         $res=$post->save();
         if($res){
             $data=[
@@ -82,6 +84,31 @@ class PostController extends Controller
                 'message' => '修改失败'
             ];
         };
+        return $data;
+    }
+    //更改状态
+    public function ChangeStatus(Request $request){
+
+         $status = $request->input('status');
+         $id = $request->input('id');
+         $post = Post::find($id);
+        if($post->post_status ==1){
+             $res = $post->update(['post_status' => 0]);
+        }else{
+             $res = $post->update(['post_status' => 1]);
+        }
+        if($res){
+            $data = [
+                'status'=>0,
+                'msg'=>'修改成功'
+            ];
+        }else{
+           
+            $data = [
+                'status'=>1,
+                'msg'=>'修改失败'
+            ];
+        }
         return $data;
     }
 }

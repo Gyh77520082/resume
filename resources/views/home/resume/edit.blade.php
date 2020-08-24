@@ -15,8 +15,10 @@
                 <td class="td_1" >
                     <select name="post" lay-verify="required" class="layui-input-block" >
                     	<option value="{{ $resume->post }}">{{ $resume->post }}</option>
-                       @foreach($post as $v)
+                        @foreach($post as $v)
+                           @if($v->post_status==1)
                         <option value="{{$v->post_id}}">{{$v->post_name}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </td>

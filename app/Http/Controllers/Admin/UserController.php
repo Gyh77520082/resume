@@ -203,22 +203,21 @@ class UserController extends Controller
 
          $status = $request->input('status');
          $userid = $request->input('userid');
-
         $user = AdminUser::find($userid);
-
+        
         if($user->status ==1){
              $res = $user->update(['status' => 0]);
         }else{
              $res = $user->update(['status' => 1]);
         }
         if($res){
-           return 1111;
+          
             $data = [
                 'status'=>0,
                 'msg'=>'修改成功'
             ];
         }else{
-           return 2222;
+           
             $data = [
                 'status'=>1,
                 'msg'=>'修改失败'

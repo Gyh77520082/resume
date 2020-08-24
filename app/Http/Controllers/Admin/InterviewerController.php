@@ -28,7 +28,6 @@ class InterviewerController extends Controller
 
        //获取所有数据
         $input = $request->all();
-
         $username=$input['username'];
         $email=$input['email'];
         $password =Hash::make($input['pass']);

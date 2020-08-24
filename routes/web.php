@@ -52,6 +52,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['AdminLogin'
 	 Route::any('post/del/{id}','PostController@del'); //删除
 	 Route::get('post/edit/{id}','PostController@edit'); //修改页面	
 	 Route::any('post/update/{id}','PostController@update');
+	 Route::post('post/ChangeStatus','PostController@ChangeStatus');  //禁用与启用
 });
 //前台
 Route::group(['namespace'=>'Home'],function(){
